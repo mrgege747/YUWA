@@ -6,6 +6,10 @@
     <meta charset="UTF-8">
     <title>Yuwa</title>
     <style>
+        body {
+            margin: 0;
+        }
+        
         .nav-bar {
             overflow: hidden;
             width: 100%;
@@ -13,14 +17,36 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
+            align-content: center;
+            align-self: center;
+            flex-wrap: wrap;
         }
         
-        a {
+        .connexion {
+            overflow: hidden;
+            width: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 40px;
+            padding-left: 10px;
+        }
+        
+        .connexion > a {
+            color: #000000;
+            font-size: 0.8rem;
+            font-family: 'avenir next';
+            font-weight: 700;
+            padding: 10px;
+            text-decoration: none;
+        }
+        
+        .nav-bar > a {
             color: #000000;
             text-align: center;
-           
             text-decoration: none;
-            font-size: 17px;
+            font-size: 1.1rem;
             font-family: 'avenir next';
             font-weight: bold;
             letter-spacing: 10px;
@@ -29,7 +55,14 @@
 </head>
 
 <body>
-    <div class="nav-bar"> <a>STRESS</a> <a>STRESS</a> <img class="logo" src="logo.png"> <a>STRESS</a> <a>STRESS</a> </div>
+    <div class="connexion"><a href="">CONNEXION</a><a>|</a> <a href="#">INSCRIPTION</a></div>
+    <div class="nav-bar"> 
+       <a href="#">STRESS</a> 
+       <a href="#">ANXIÉTÉ</a>
+        <a href="#"><img class="logo" src="logo.png"></a> 
+        <a href="#">LE FORUM</a> 
+        <a href="#">A PROPOS</a> 
+        </div>
 </body>
 
 </html>
