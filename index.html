@@ -1,13 +1,134 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <title>Yuwa</title>
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js">
+    </script>
     <style>
         body {
+            overflow: hidden;
             margin: 0;
+        }
+        /* Preloader */
+        
+        #preloader1 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ffffff;
+            /* change if the mask should have another color then white */
+            z-index: 99;
+            /* makes sure it stays on top */
+        }
+        
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #9d90ff;
+            /* change if the mask should have another color then white */
+            z-index: 98;
+            /* makes sure it stays on top */
+        }
+        
+        #status {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 50%;
+            /* centers the loading animation horizontally one the screen */
+            top: 50%;
+            /* centers the loading animation vertically one the screen */
+            background-image: url(https://raw.githubusercontent.com/niklausgerber/PreLoadMe/master/img/status.gif);
+            /* path to your loading animation */
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: -100px 0 0 -100px;
+            /* is width and height divided by two */
+        }
+        
+        .yuwa-load {
+            position: absolute;
+            animation: tracking-in-expand 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            color: #ffffff;
+            text-align: center;
+            text-decoration: none;
+            font-size: 6rem;
+            font-family: 'avenir next';
+            font-weight: bold;
+            letter-spacing: 10px;
+            top: 50vh;
+            left: 20vw;
+        }
+        
+        .yuwa-load-under {
+            position: relative;
+            animation: tracking-in-expand 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            color: #ffffff;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1rem;
+            font-family: 'avenir next';
+            font-weight: bold;
+            letter-spacing: 10px;
+            top: 80vh;
+            left: 50vw;
+        }
+        
+        .tracking-out-contract {
+            position: absolute;
+            animation: tracking-out-contract 0.7s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+            color: #ffffff;
+            text-align: center;
+            text-decoration: none;
+            font-size: 6rem;
+            font-family: 'avenir next';
+            font-weight: bold;
+            letter-spacing: 10px;
+            top: 50vh;
+            left: 20vw;
+        }
+        
+        @keyframes tracking-in-expand {
+            0% {
+                letter-spacing: -0.5em;
+                opacity: 0;
+            }
+            40% {
+                opacity: 0.6;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes tracking-out-contract {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                letter-spacing: -0.5em;
+                opacity: 0;
+            }
+        }
+        
+        .first {
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        .second {
+            width: 100vw;
+            height: 100vh;
         }
         
         .nav-bar {
@@ -55,14 +176,28 @@
 </head>
 
 <body>
-    <div class="connexion"><a href="">CONNEXION</a><a>|</a> <a href="#">INSCRIPTION</a></div>
-    <div class="nav-bar"> 
-       <a href="#">STRESS</a> 
-       <a href="#">ANXIÉTÉ</a>
-        <a href="#"><img class="logo" src="logo.png"></a> 
-        <a href="#">LE FORUM</a> 
-        <a href="#">A PROPOS</a> 
-        </div>
+    <div id="preloader">
+        <div class="yuwa-load" id="yuwa-load">YUWA</div>
+    </div>
+    <div class="first">
+        <h1 class="text">Here to relax</h1> </div>
+    <div class="second">
+        <div class="connexion"><a href="">CONNEXION</a><a>|</a> <a href="#">INSCRIPTION</a></div>
+        <div class="nav-bar"> <a href="#">STRESS</a> <a href="#">ANXIÉTÉ</a>
+            <a href="#"><img class="logo" src="logo.png"></a> <a href="#">LE FORUM</a> <a href="#">A PROPOS</a> </div>
+    </div>
 </body>
 
 </html>
+<script>
+    $(window).on('load', function () { // makes sure the whole site is loaded 
+        // $('#status').fadeOut(); // will first fade out the loading animation 
+        //$( '.tracking-in-expand' ).removeClass( "tracking-in-expand" );
+        $('#preloader1').delay(100).slideUp('slow');
+        $('#yuwa-load').addClass("traking-out-contract");
+        $('#preloader').delay(1000).slideUp('slow'); // will fade out the white DIV that covers the website. 
+        $('body').delay(350).css({
+            'overflow': 'visible'
+        });
+    })
+</script>
