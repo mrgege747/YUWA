@@ -6,6 +6,7 @@
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js">
     </script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
     <style>
         body {
             overflow: hidden;
@@ -31,69 +32,37 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: #9d90ff;
+            background-color: #ffffff;
             /* change if the mask should have another color then white */
             z-index: 98;
             /* makes sure it stays on top */
         }
         
-        #status {
-            width: 200px;
-            height: 200px;
-            position: absolute;
-            left: 50%;
-            /* centers the loading animation horizontally one the screen */
-            top: 50%;
-            /* centers the loading animation vertically one the screen */
-            background-image: url(https://raw.githubusercontent.com/niklausgerber/PreLoadMe/master/img/status.gif);
-            /* path to your loading animation */
-            background-repeat: no-repeat;
-            background-position: center;
-            margin: -100px 0 0 -100px;
-            /* is width and height divided by two */
-        }
+        
         
         .yuwa-load {
             position: absolute;
             animation: tracking-in-expand 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-            color: #ffffff;
+            color: white;
+            background-image: linear-gradient(to left, rgba(46, 34, 99, 1) 0%, rgba(124, 170, 247, 0.38) 100%);
             text-align: center;
             text-decoration: none;
-            font-size: 6rem;
-            font-family: 'avenir next';
+            font-size: 8rem;
+            font-family: 'montserrat';
             font-weight: bold;
             letter-spacing: 10px;
-            top: 50vh;
+            top: 40vh;
             left: 20vw;
+            background-size: auto 250%;
+            background-position: 0 100%;
+            transition: background-position 0.5s;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
-        .yuwa-load-under {
-            position: relative;
-            animation: tracking-in-expand 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-            color: #ffffff;
-            text-align: center;
-            text-decoration: none;
-            font-size: 1rem;
-            font-family: 'avenir next';
-            font-weight: bold;
-            letter-spacing: 10px;
-            top: 80vh;
-            left: 50vw;
-        }
+       
         
-        .tracking-out-contract {
-            position: absolute;
-            animation: tracking-out-contract 0.7s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-            color: #ffffff;
-            text-align: center;
-            text-decoration: none;
-            font-size: 6rem;
-            font-family: 'avenir next';
-            font-weight: bold;
-            letter-spacing: 10px;
-            top: 50vh;
-            left: 20vw;
-        }
+     
         
         @keyframes tracking-in-expand {
             0% {
@@ -124,6 +93,41 @@
         .first {
             width: 100vw;
             height: 100vh;
+        }
+        
+        
+        .first h1:nth-of-type(1){
+            position: relative;
+            top: 20%;
+            left: 6%;
+            font-family: 'montserrat';
+            color: black;
+            font-size: 6rem;
+            font-weight: 700;
+            
+            
+        }
+        .first h4{
+            position: relative;
+            top: 50%;
+            left: 6%;
+            font-size: 2rem;
+            font-family: 'montserrat';
+            font-weight: 400;
+            color: black;
+            
+            
+            
+        }
+        
+        .first img{
+            
+            position: absolute;
+            left: 55%;
+            top: 1%;
+            
+            
+            
         }
         
         .second {
@@ -180,7 +184,10 @@
         <div class="yuwa-load" id="yuwa-load">YUWA</div>
     </div>
     <div class="first">
-        <h1 class="text">Here to relax</h1> </div>
+        <h1>Respirez</h1>
+        <h4>Vous êtes ici pour destresser</h4> <img class="fish" src="fish.png" />
+        
+ </div>
     <div class="second">
         <div class="connexion"><a href="">CONNEXION</a><a>|</a> <a href="#">INSCRIPTION</a></div>
         <div class="nav-bar"> <a href="#">STRESS</a> <a href="#">ANXIÉTÉ</a>
@@ -194,7 +201,6 @@
         // $('#status').fadeOut(); // will first fade out the loading animation 
         //$( '.tracking-in-expand' ).removeClass( "tracking-in-expand" );
         $('#preloader1').delay(100).slideUp('slow');
-        $('#yuwa-load').addClass("traking-out-contract");
         $('#preloader').delay(1000).slideUp('slow'); // will fade out the white DIV that covers the website. 
         $('body').delay(350).css({
             'overflow': 'visible'
